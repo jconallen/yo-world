@@ -2,7 +2,6 @@ apiVersion: appsody.dev/v1beta1
 kind: AppsodyApplication
 metadata:
   name: yo-world
-  namespace: yo-world
 spec:
   # Add fields here
   version: 1.0.0
@@ -28,3 +27,17 @@ spec:
     initialDelaySeconds: 5
     periodSeconds: 2
   expose: true
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: yo-world-env
+data:
+  ENV_TOY_CONFIGMAP: 'This is a configuration value.'
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: yo-world-files
+data:
+  config.json: '{ "default": "123" }'
